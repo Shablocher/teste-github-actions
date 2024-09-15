@@ -5,6 +5,7 @@ on:
     branches:
     - main
     - master
+    - github-action
 jobs: 
   Block-Push-Actions:
     runs-on: ubuntu-latest    
