@@ -1,6 +1,10 @@
 name: Block pushes
 run-name: ${{ github.actor }} is trying to push... 🚀
-on: [push]
+on:
+  push:
+    branches:
+      - main
+      - master
 jobs:
   Block-Push-Actions:
     runs-on: ubuntu-latest
