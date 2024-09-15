@@ -1,16 +1,11 @@
 name: Block Pushes
-
-on:
-  push:
-    branches:
-      - 'main'   # Block pushes to the 'main' branch
-      - 'master' # You can add more branches here as needed
-
+on: [push]
+branches:
+ - 'main'   # Block pushes to the 'main' branch
+ - 'master' # You can add more branches here as needed
 jobs:
-  block_push:
+  block-push:
     runs-on: ubuntu-latest
     steps:
-      - name: Block push
-        run: |
-          echo "Pushes to this branch are not allowed."
-          exit 1 # This exits with a non-zero code, which fails the job and blocks the push
+      - run: echo "Pushes to this branch are not allowed."
+      - run: exit 1 # This exits with a non-zero code, which fails the job and blocks the push
