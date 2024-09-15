@@ -16,7 +16,7 @@ jobs:
     - run: echo "Pushes to this branch are not allowed."
     #- run: exit 1 # This exits with a non-zero code, which fails the job and blocks the push
     - name: Cancel workflow if condition is met
-      uses: actions/workflow-dispatch@v2
+      uses: actions/workflow-dispatch@v1
       with:
         workflow_id: ${{ github.workflow_id }}
         ref: ${{ github.ref }}
