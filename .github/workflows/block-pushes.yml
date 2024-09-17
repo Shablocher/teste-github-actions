@@ -14,4 +14,10 @@ jobs:
     - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
     - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
     - run: echo "Pushes to this branch are not allowed."
-    - run: exit 1 # This exits with a non-zero code, which fails the job and blocks the push
+    - name: Check if the commit was done through a PR
+    - run: |
+        if [ "${{ github.event_name }}" = "push" ]; then
+          echo "Direct commits to the main branch are not allowed. Please use a pull request."
+          exit 1
+        fi
+    # - run: exit 1 # This exits with a non-zero code, which fails the job and blocks the push
